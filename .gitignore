@@ -1,2 +1,6 @@
 /.vscode
 /__pycache__
+/train/**/*.jpeg
+/train/**/*.png
+/test/**/*.jpeg
+/test/**/*.png
