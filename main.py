@@ -10,4 +10,4 @@ if __name__ == '__main__':
     train_input, train_output = get_data(train_path)
     test_input, test_output = get_data(test_path)
 
-    Logistic_Regression_train(train_input, train_output, test_input, test_output)
+    #Logistic_Regression_train(train_input, train_output, test_input, test_output)
