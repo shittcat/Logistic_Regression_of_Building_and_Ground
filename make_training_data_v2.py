@@ -33,7 +33,7 @@ def is_building(input, segment):
     train_data = list(zip(input_data, output_data))
     return train_data
 
-def get_data(input_dir = "E:\\aerial_image\\cross0\\"):
+def get_data(input_dir):
     multiprocessing.freeze_support()
     start_time = time.time()
     input = [cv.imread(file) for file in glob.glob(input_dir + 'image\\*.jpeg')]
