@@ -11,8 +11,3 @@ if __name__ == '__main__':
     test_input, test_output = get_data(test_path)
 
     Logistic_Regression_train(train_input, train_output, test_input, test_output)
-    
-
-
-
-    #print(np.shape(train_data))
