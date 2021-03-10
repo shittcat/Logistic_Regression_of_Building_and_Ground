@@ -1,5 +1,6 @@
 from make_training_data_v2 import get_data
 from Logistic_Regression import Logistic_Regression_train
+from Training_filter import Training_filter
 import numpy as np
 import cv2 as cv
 
@@ -11,3 +12,4 @@ if __name__ == '__main__':
     test_input, test_output = get_data(test_path)
 
     #Logistic_Regression_train(train_input, train_output, test_input, test_output)
+    Training_filter(train_input, train_output, test_input, test_output)

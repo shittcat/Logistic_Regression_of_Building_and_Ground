@@ -26,16 +26,14 @@ def Logistic_Regression_train(train_input, train_output, test_input, test_output
     x = tf.placeholder(tf.float32)
     y = tf.placeholder(tf.float32)
 
-    W = tf.Variable(tf.random_normal(shape=[3,3,3,1], stddev=5e-2))
-    b = tf.Variable(tf.random_normal(shape=[1]))
-    output = tf.nn.conv2d(x, W, strides=[1, 1, 1, 1])+ b_conv1
-    h_pool1 = tf.nn.max_pool(h_conv1, ksize=[1,2,2,1], strides=[1,2,2,1], padding='SAME')
-    linear_model = tf.sigmoid(W * x + b)
-    loss = tf.reduce_mean(tf.square(linear_model-y))
+    W = tf.Variable(tf.random_normal(shape=[16,16,3,1], stddev=5e-2))
+    b = tf.Variable(tf.constant(0.1, shape=[1]))
+    logits = tf.sigmoid(tf.matmul(x, W) + b)
+    loss = tf.reduce_mean(tf.square(logits-y))
     optimizer = tf.train.GradientDescentOptimizer(learning_rate)
     train_step = optimizer.minimize(loss)
     
-    predicted = tf.cast(linear_model > 0.5, dtype=tf.float32)
+    predicted = tf.cast(logits > 0.5, dtype=tf.float32)
 
     init = tf.global_variables_initializer()
     with tf.Session() as sess:
