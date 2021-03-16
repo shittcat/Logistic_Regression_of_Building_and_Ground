@@ -36,8 +36,8 @@ def is_building(input, segment):
 def get_data(input_dir):
     multiprocessing.freeze_support()
     start_time = time.time()
-    input = [cv.imread(file) for file in glob.glob(input_dir + 'image1\\*.jpeg')]
-    segment = [cv.imread(file, cv.IMREAD_GRAYSCALE) for file in glob.glob(input_dir + 'ground1\\*.png')]
+    input = [cv.imread(file) for file in glob.glob(input_dir + 'image\\*.jpeg')]
+    segment = [cv.imread(file, cv.IMREAD_GRAYSCALE) for file in glob.glob(input_dir + 'ground\\*.png')]
     num_cores = multiprocessing.cpu_count()
     train_data = parmap.starmap(is_building, list(zip(input, segment)), pm_pbar=True, pm_processes=12)
     train_data = np.reshape(train_data, (-1, 2))
